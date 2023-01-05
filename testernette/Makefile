@@ -1,39 +1,43 @@
-NAME =		testprintf.a
+NAME =		test.a
 
-SUBDIRS =	intra-uuid-7c3dd5da-cb6d-4b9d-be93-cd17dbc6f636-4609906-lspohle
+SUBDIRS =	printf
 
-SRCS =		headline.c success.c failure.c character.c string.c pointer.c integer.c
+SRCS =		test_output.c test_character.c test_decimal.c test_hexadecimal.c
 
 OBJS =		${SRCS:.c=.o}
 
-GCCW =		gcc
+GCC =		gcc
 
 AR =		ar -rc
 
 RM =		rm -f
 
 ${NAME}:	${OBJS} ${SUBDIRS}
-			cp ../intra-uuid-7c3dd5da-cb6d-4b9d-be93-cd17dbc6f636-4609906-lspohle/libftprintf.a .
+			cp ../printf/libftprintf.a .
 			mv libftprintf.a ${NAME}
 			${AR} ${NAME} ${OBJS}
+			echo "\n\033[1;35m###    Testernette    ###\033[0m\n"
+			${GCC} main.c test.a -o executable && ./executable && rm executable
+			make fclean
 
 ${OBJS}:	${SRCS}
-			${GCCW} -c ${SRCS}
+			${GCC} -c ${SRCS}
 
 ${SUBDIRS}:
-			cd ../intra-uuid-7c3dd5da-cb6d-4b9d-be93-cd17dbc6f636-4609906-lspohle && ${MAKE}
+			echo "\n\033[1;35m###    Norminette    ###\033[0;33m\n"
+			cd ../printf && norminette && ${MAKE} -s
 
 all:		${NAME}
 
 clean:
 			${RM} ${OBJS}
-			cd ../intra-uuid-7c3dd5da-cb6d-4b9d-be93-cd17dbc6f636-4609906-lspohle && ${MAKE} clean
+			cd ../printf && ${MAKE} -s clean
 
 fclean:		clean
 			${RM} ${NAME}
-			cd ../intra-uuid-7c3dd5da-cb6d-4b9d-be93-cd17dbc6f636-4609906-lspohle && ${MAKE} fclean
+			cd ../printf && ${MAKE} -s fclean
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re norm
 

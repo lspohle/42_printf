@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   headline.c                                         :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/04 09:39:46 by lspohle           #+#    #+#             */
-/*   Updated: 2023/01/04 12:38:22 by lspohle          ###   ########.fr       */
+/*   Created: 2022/12/12 13:37:38 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/16 12:10:36 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "testprintf.h"
+// 	Prototyped as int isdigit(int c)
+// 	-> #include <ctype.h>
+// 	-> tests for a decimal digit character
+// 	-> regardless of locale, this includes the following characters only
+// 	-> returns zero if the character tests false
+// 	   returns non-zero if the character tests true
 
-// Displaying headline
-void	test_headline(char *function_name)
+#include "libft.h"
+
+int	ft_isdigit(int c)
 {
-	printf(PURPLE"-------------------------\n"ESCAPE);
-	printf(CYAN"	%s\n"ESCAPE, function_name);
-	printf(PURPLE"-------------------------\n"ESCAPE);
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }
