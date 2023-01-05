@@ -6,7 +6,7 @@
 /*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:45:49 by lspohle           #+#    #+#             */
-/*   Updated: 2023/01/05 15:49:38 by lspohle          ###   ########.fr       */
+/*   Updated: 2023/01/05 16:03:49 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void	f_str(va_list args, int *cnt, int pointer)
 }
 
 // Differentiates between the different identifiers
-static void	f_identifiers(char c, va_list args, int *cnt)
+static void	f_identify(char c, va_list args, int *cnt)
 {
 	if (c == 'c' || c == '%')
 	{
@@ -113,7 +113,7 @@ int	ft_printf(const char *str, ...)
 	while (str[++i])
 	{
 		if (str[i] == '%')
-			f_int(str[++i], args, &cnt);
+			f_identify(str[++i], args, &cnt);
 		else
 		{
 			ft_putchar_fd(str[i], 1);
