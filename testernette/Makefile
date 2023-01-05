@@ -16,7 +16,6 @@ ${NAME}:	${OBJS} ${SUBDIRS}
 			cp ../printf/libftprintf.a .
 			mv libftprintf.a ${NAME}
 			${AR} ${NAME} ${OBJS}
-			echo "\n\033[1;35m	    ###    Testernette    ###\033[0m\n"
 			${GCC} main.c test.a -o executable && ./executable && rm executable
 			make fclean
 
@@ -24,7 +23,7 @@ ${OBJS}:	${SRCS}
 			${GCC} -c ${SRCS}
 
 ${SUBDIRS}:
-			echo "\n\033[1;35m	    ###    Norminette    ###\033[0;33m\n"
+			echo "\n\033[1;36mNorminette\033[0;33m\n"
 			cd ../printf && norminette && ${MAKE} -s
 
 all:		${NAME}

@@ -6,7 +6,7 @@
 /*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 09:30:47 by lspohle           #+#    #+#             */
-/*   Updated: 2023/01/05 10:28:44 by lspohle          ###   ########.fr       */
+/*   Updated: 2023/01/05 21:08:28 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,18 @@
 # include <limits.h>
 # include <stdbool.h>
 # include <stdio.h>
-# define RED "\033[0;31m"
-# define GREEN "\033[0;32m"
-# define BRED "\033[1;31m"
-# define BGREEN "\033[1;32m"
-# define PURPLE "\033[0;35m"
+# define RED "\e[38;5;160m"
+# define GREEN "\e[38;5;41m"
+# define BRED "\e[38;5;160;1m"
+# define BGREEN "\e[38;5;41;1m"
+# define PURPLE "\e[38;5;141;1m"
+# define MINT "\e[38;5;43m"
+# define PINK "\e[38;5;212m"
 # define CYAN "\033[1;36m"
 # define ESCAPE "\033[0m"
 
 void	test_headline(char *function_name);
+void	testernette(void);
 void	test_successful(int test);
 void	test_failed(int test, int *value);
 void	test_congratulations(void);

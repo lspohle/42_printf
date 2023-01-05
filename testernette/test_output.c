@@ -6,18 +6,26 @@
 /*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 07:44:35 by lspohle           #+#    #+#             */
-/*   Updated: 2023/01/05 14:01:59 by lspohle          ###   ########.fr       */
+/*   Updated: 2023/01/05 21:04:26 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test.h"
 
+// Displaying congrats
+void	testernette(void)
+{
+	printf(MINT"\n╔══════════════════════════════════════════════════╗\n");
+	printf(MINT"║"PURPLE"             Welcome to Testernette!           "MINT"   ║\n");
+	printf(MINT"╚══════════════════════════════════════════════════╝\n\n");
+}
+
 // Displaying headline
 void	test_headline(char *function_name)
 {
-	printf(PURPLE"----------------------------------------------------\n"ESCAPE);
+	printf(PINK"----------------------------------------------------\n"ESCAPE);
 	printf(CYAN"	     %s\n"ESCAPE, function_name);
-	printf(PURPLE"----------------------------------------------------\n"ESCAPE);
+	printf(PINK"----------------------------------------------------\n"ESCAPE);
 }
 
 // Displaying success

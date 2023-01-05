@@ -6,7 +6,7 @@
 /*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:45:49 by lspohle           #+#    #+#             */
-/*   Updated: 2023/01/05 16:03:49 by lspohle          ###   ########.fr       */
+/*   Updated: 2023/01/05 21:14:25 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ static void	f_itoa(long int num, char *base, int n, int *cnt)
 	if (num < 0)
 	{
 		num *= -1;
-		write(1, "-", 1);
-		*cnt += 1;
+		*cnt += write(1, "-", 1);
 	}
 	if (num >= n)
 		f_itoa(num / n, base, n, cnt);
@@ -60,32 +59,28 @@ static void	f_str(va_list args, int *cnt, int pointer)
 		tmp = va_arg(args, char *);
 		if (!tmp)
 		{
-			write(1, "(null)", 6);
-			*cnt += 6;
+			*cnt += write(1, "(null)", 6);
 			return ;
 		}
-		ft_putstr_fd(tmp, 1);
-		*cnt += ft_strlen(tmp);
+		*cnt += write(1, tmp, ft_strlen(tmp));
 	}
 	else if (pointer == 1)
 	{
-		write(1, "0x", 2);
+		*cnt += write(1, "0x", 2);
 		f_utoa(va_arg(args, long unsigned int), "0123456789abcdef", 16, cnt);
-		*cnt += 2;
 	}
 }
 
 // Differentiates between the different identifiers
 static void	f_identify(char c, va_list args, int *cnt)
 {
-	if (c == 'c' || c == '%')
+	if (c == 'c')
 	{
-		if (c == 'c')
-			ft_putchar_fd(va_arg(args, int), 1);
-		else
-			ft_putchar_fd('%', 1);
+		ft_putchar_fd(va_arg(args, int), 1);
 		*cnt += 1;
 	}
+	else if (c == '%')
+		*cnt += write(1, "%", 1);
 	else if (c == 's')
 		f_str(args, cnt, 0);
 	else if (c == 'p')
@@ -115,10 +110,7 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 			f_identify(str[++i], args, &cnt);
 		else
-		{
-			ft_putchar_fd(str[i], 1);
-			cnt++;
-		}
+			cnt += write(1, &str[i], 1);
 	}
 	va_end(args);
 	return (cnt);

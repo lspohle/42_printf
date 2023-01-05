@@ -6,7 +6,7 @@
 /*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:39:28 by lspohle           #+#    #+#             */
-/*   Updated: 2023/01/05 10:21:07 by lspohle          ###   ########.fr       */
+/*   Updated: 2023/01/05 20:56:25 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int main(void)
 {
 	int value = 0;
+
+	testernette();
 
 	test_character(&value);
 	test_string(&value);
