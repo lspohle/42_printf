@@ -28,14 +28,14 @@ Replace the content of the directory [printf](https://github.com/lspohle/ft_prin
   * ft_printf.h
   * *.c
 
-Enter the following command in order to create an alias for [testernette_printf](https://github.com/lspohle/ft_printf/tree/main/testernette).
+Go into [testernette_printf](https://github.com/lspohle/ft_printf/tree/main/testernette), and enter the following command in order to create an alias for testernette.
 
      bash testernette_printf.sh
      
-Run testernette by using the alias you created.
+Run testernette by using the alias you created (you must be in the directory of testernette).
 
      testernette_printf
-If you prefer not having an alias for testernette, enter directly the following command to run testernette.
+If you prefer not having an alias for testernette, enter the following command directly to run testernette.
 
      make -s re
      
