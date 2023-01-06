@@ -38,3 +38,9 @@ Run testernette by using the alias you created.
 If you prefer not having an alias for testernette, enter directly the following command to run testernette.
 
      make -s re
+     
+     
+
+
+https://user-images.githubusercontent.com/121381385/211036966-594256a2-490d-4cc0-8733-b8ad9d39c5b4.mov
+
