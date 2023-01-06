@@ -42,5 +42,6 @@ If you prefer not having an alias for testernette, enter directly the following 
      
 
 
-https://user-images.githubusercontent.com/121381385/211036966-594256a2-490d-4cc0-8733-b8ad9d39c5b4.mov
+https://user-images.githubusercontent.com/121381385/211037598-bea120d8-e6b7-43d0-b782-6eae7dfd2847.mov
+
 
